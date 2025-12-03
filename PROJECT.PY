@@ -10,7 +10,7 @@ class CourseRegistrationSystem:
         self.root.geometry("900x700")
         self.root.config(bg="#f5f5f5")
         
-        # Data storage
+        
         self.available_courses = {
             "CS101": {"name": "Introduction to Programming", "credits": 3, "seats": 30, "enrolled": 0},
             "CS201": {"name": "Data Structures", "credits": 4, "seats": 25, "enrolled": 0},
@@ -29,7 +29,7 @@ class CourseRegistrationSystem:
         self.create_widgets()
         
     def create_widgets(self):
-        # Header
+        
         header = tk.Frame(self.root, bg="#2c3e50", height=80)
         header.pack(fill=tk.X)
         
@@ -37,15 +37,15 @@ class CourseRegistrationSystem:
                         font=("Arial", 24, "bold"), bg="#2c3e50", fg="white")
         title.pack(pady=20)
         
-        # Main container
+        
         main_container = tk.Frame(self.root, bg="#f5f5f5")
         main_container.pack(fill=tk.BOTH, expand=True, padx=20, pady=20)
         
-        # Left panel - Student Info
+        
         left_panel = tk.Frame(main_container, bg="white", relief=tk.RAISED, bd=2)
         left_panel.pack(side=tk.LEFT, fill=tk.BOTH, padx=(0, 10), expand=True)
         
-        # Student Information
+        
         info_label = tk.Label(left_panel, text="Student Information", 
                              font=("Arial", 14, "bold"), bg="white")
         info_label.pack(pady=10)
@@ -63,12 +63,12 @@ class CourseRegistrationSystem:
         self.id_entry = tk.Entry(info_frame, font=("Arial", 10), width=25)
         self.id_entry.grid(row=1, column=1, pady=5, padx=5)
         
-        # Available Courses
+        
         courses_label = tk.Label(left_panel, text="Available Courses", 
                                 font=("Arial", 14, "bold"), bg="white")
         courses_label.pack(pady=(20, 10))
         
-        # Treeview for courses
+        
         tree_frame = tk.Frame(left_panel, bg="white")
         tree_frame.pack(pady=10, padx=20, fill=tk.BOTH, expand=True)
         
@@ -80,7 +80,7 @@ class CourseRegistrationSystem:
         self.course_tree.pack(fill=tk.BOTH, expand=True)
         scrollbar.config(command=self.course_tree.yview)
         
-        # Configure columns
+        
         self.course_tree.column("#0", width=80)
         self.course_tree.column("Name", width=200)
         self.course_tree.column("Credits", width=60)
@@ -93,7 +93,7 @@ class CourseRegistrationSystem:
         
         self.populate_course_tree()
         
-        # Buttons
+        
         button_frame = tk.Frame(left_panel, bg="white")
         button_frame.pack(pady=15)
         
@@ -105,7 +105,7 @@ class CourseRegistrationSystem:
                  bg="#e74c3c", fg="white", font=("Arial", 10, "bold"), 
                  width=15, cursor="hand2").pack(side=tk.LEFT, padx=5)
         
-        # Right panel - Registered Courses
+        
         right_panel = tk.Frame(main_container, bg="white", relief=tk.RAISED, bd=2)
         right_panel.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
         
@@ -113,7 +113,7 @@ class CourseRegistrationSystem:
                             font=("Arial", 14, "bold"), bg="white")
         reg_label.pack(pady=10)
         
-        # Registered courses listbox
+        
         list_frame = tk.Frame(right_panel, bg="white")
         list_frame.pack(pady=10, padx=20, fill=tk.BOTH, expand=True)
         
@@ -126,7 +126,7 @@ class CourseRegistrationSystem:
         self.registered_listbox.pack(fill=tk.BOTH, expand=True)
         reg_scrollbar.config(command=self.registered_listbox.yview)
         
-        # Summary
+        
         summary_frame = tk.Frame(right_panel, bg="white")
         summary_frame.pack(pady=15, padx=20, fill=tk.X)
         
@@ -138,7 +138,7 @@ class CourseRegistrationSystem:
                                            font=("Arial", 11, "bold"), bg="white")
         self.total_courses_label.pack(anchor=tk.W, pady=3)
         
-        # Action buttons
+        
         action_frame = tk.Frame(right_panel, bg="white")
         action_frame.pack(pady=15)
         
@@ -264,4 +264,5 @@ class CourseRegistrationSystem:
 if __name__ == "__main__":
     root = tk.Tk()
     app = CourseRegistrationSystem(root)
+
     root.mainloop()
